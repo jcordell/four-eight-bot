@@ -32,7 +32,6 @@ class MflApi {
         auctions.forEach(auction => auction.player = this.playerNameDb[auction.transaction.split('|')[0]])
         auctions.forEach(auction => auction.price = (parseInt(auction.transaction.split('|')[1]) / 1000000).toFixed(1).toString() + 'M')
         auctions.forEach(auction => auction.franchiseName = this.franchiseNamesDb[auction.franchise]);
-        console.log(auctions)
         return auctions;
     }
 }

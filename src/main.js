@@ -1,7 +1,6 @@
 require('dotenv').config()
 const mfl = require('./services/mfl');
 const slack = require('./services/slack');
-const sleep = require('sleep')
 
 async function setup() {
     await mfl.setup();
@@ -10,7 +9,7 @@ async function setup() {
 async function run() {
     await setup();
     while(1) {
-        sleep.sleep(1 * 5)
+        await _sleep(1 * 5)
         await _getToWork();
     }
 }
@@ -23,7 +22,11 @@ async function _getToWork() {
 }
 
 function _formatSlackString(auction) {
-    return `${auction.player} to ${auction.franchiseName} (${auction.price})`;
+    return `*${auction.player}* to ${auction.franchiseName} (${auction.price})`;
 }
 
+function _sleep(s) {
+    return new Promise(resolve => setTimeout(resolve, s * 1000));
+}
+  
 run();
