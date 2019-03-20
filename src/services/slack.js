@@ -4,7 +4,7 @@ const { WebClient } = require('@slack/client');
 const web = new WebClient(token);
 
 // This argument can be a channel ID, a DM ID, a MPDM ID, or a group ID
-const conversationId = 'testbotv2';
+const conversationId = 'draft';
 
 class SlackBot {
   async send(text) {

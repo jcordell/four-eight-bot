@@ -22,7 +22,7 @@ class MflApi {
         JSON.parse(league).league.franchises.franchise.forEach(franchise => this.franchiseNamesDb[franchise.id] = franchise.name);
     }
 
-    async getNewAuctionsWon(delay = 2000) {
+    async getNewAuctionsWon(delay = 5) {
         const transactionUrl = 'https://www60.myfantasyleague.com/2019/export?TYPE=transactions&L=22627&APIKEY=&W=&TRANS_TYPE=AUCTION_WON&FRANCHISE=&DAYS=&COUNT=&JSON=1'
         const res = await request.get(transactionUrl);
         const auctionResults = JSON.parse(res).transactions.transaction;

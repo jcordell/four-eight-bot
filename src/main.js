@@ -9,7 +9,7 @@ async function setup() {
 async function run() {
     await setup();
     while(1) {
-        await _sleep(1 * 5)
+        await _sleep(60 * 5)
         await _getToWork();
     }
 }
